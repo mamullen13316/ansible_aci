@@ -1,0 +1,11 @@
+---
+- name: Role for associating a VMM Domain to an AEP in ACI
+  hosts: localhost
+
+  roles:
+    - {role: common, debug: on}
+    - {role: vmm_to_aep, debug: on}
+
+
+   
+

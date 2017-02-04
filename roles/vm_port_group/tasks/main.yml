@@ -1,0 +1,24 @@
+---
+  - name: Configure CentOS2 VM in Web EPG port group
+    local_action:
+      module: vmware_vm_vss_dvs_migrate
+      hostname: "{{ VCENTER_IP }}"
+      username: "administrator@vsphere.local"
+      password: "WWTwwt1!"
+      vm_name: "POD{{ item }}-Centos2"
+      dvportgroup_name: "S{{ item }}|S{{ item }}_vApp|Web"
+    with_items: "{{ STUDENTS }}"
+
+  - name: Configure CentOS3 VM in App EPG port group
+    local_action:
+      module: vmware_vm_vss_dvs_migrate
+      hostname: "{{ VCENTER_IP }}"
+      username: "administrator@vsphere.local"
+      password: "WWTwwt1!"
+      vm_name: "POD{{ item }}-Centos3"
+      dvportgroup_name: "S{{ item }}|S{{ item }}_vApp|App"
+    with_items: "{{ STUDENTS }}"
+   
+
+
+

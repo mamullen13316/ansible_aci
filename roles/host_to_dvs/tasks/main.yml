@@ -1,0 +1,31 @@
+---
+  - name: Add first host to DVS
+    local_action:
+      module: vmware_dvs_host
+      hostname: "{{ VCENTER_IP }}"
+      username: "administrator@vsphere.local"
+      password: "WWTwwt1!"
+      esxi_hostname: "aci-trng-esx{{ item }}.sandbox.wwtatc.local"
+      switch_name: "S{{ item }}_Training_VC"
+      vmnics:
+        - vmnic1
+      state: present
+    with_items: "{{ STUDENTS }}"
+    
+
+  - name: Add second host to DVS
+    local_action:
+      module: vmware_dvs_host
+      hostname: "{{ VCENTER_IP }}"
+      username: "administrator@vsphere.local"
+      password: "WWTwwt1!"
+      esxi_hostname: "aci-trng-esx{{ item }}{{ item }}.sandbox.wwtatc.local"
+      switch_name: "S{{ item }}_Training_VC"
+      vmnics:
+        - vmnic1
+      state: present
+    with_items: "{{ STUDENTS }}"
+    
+
+
+

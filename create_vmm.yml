@@ -1,0 +1,11 @@
+---
+- name: Role for creating a new VMM Domain in ACI
+  hosts: localhost
+
+  roles:
+    - {role: common, debug: on}
+    - {role: vmm_domain, debug: on}
+
+
+   
+

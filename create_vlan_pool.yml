@@ -1,0 +1,11 @@
+---
+- name: Role for creating a new VLAN Pool in ACI
+  hosts: localhost
+
+  roles:
+    - {role: common, debug: on}
+    - {role: vlan_pool, debug: on}
+
+
+   
+

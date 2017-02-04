@@ -1,0 +1,11 @@
+---
+- name: Role for creating a new Tenant and Application Network Profile in ACI
+  hosts: localhost
+
+  roles:
+    - {role: common, debug: on}
+    - {role: tenant_and_anp, debug: on}
+
+
+   
+

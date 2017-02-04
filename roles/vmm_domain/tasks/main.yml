@@ -1,0 +1,17 @@
+---
+  - name: Create json files from template
+    template:
+      src: "./roles/{{role}}/templates/vmm_domain.j2"
+      dest: "./roles/{{role}}/files/vmm_domain_S{{ item }}.json"
+    with_items: "{{ STUDENTS }}"
+   
+  - name: Post json files to APIC
+    aci_rest:
+      host: "{{ APIC }}"
+      username: "{{ USERNAME }}"
+      password: "{{ PASSWORD }}"
+      uri: "/api/node/mo/uni/vmmp-VMware/dom-S{{ item }}_Training_VC.json"
+      config_file: "./roles/{{role}}/files/vmm_domain_S{{ item }}.json"
+      action: "post"
+      protocol: https
+    with_items: "{{ STUDENTS }}"

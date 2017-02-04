@@ -1,0 +1,37 @@
+---
+- name: Role for creating a new VMM Domain in ACI
+  hosts: localhost
+  vars:
+    USERNAME: "ACI-Class-1"
+    PASSWORD: "ACI_101C1!"
+    APIC: "10.255.139.180"
+    VCENTER:
+      1: "10.255.139.51"
+      2: "10.255.139.52"
+      3: "10.255.139.53"
+      4: "10.255.139.54"
+      5: "10.255.139.55"
+      6: "10.255.139.47"
+      7: "10.255.139.254"
+      8: "10.255.139.251"
+      9: "10.255.139.248"
+      10: "10.255.139.245"
+      11: "10.255.139.242"
+      12: "10.255.139.239"
+      13: "10.255.139.236"
+      14: "10.255.139.233"
+      15: "10.255.139.230"
+      16: "10.255.139.227"
+      17: "10.255.139.224"
+      18: "10.255.139.221"
+    STUDENT_NBR: "{{ item }}"
+    VCENTER_IP: "{{ VCENTER[item] }}"
+# Modify below list to specify student numbers
+    STUDENTS: [1,2,3,4]  
+
+  roles:
+    - {role: vmm_domain, debug: on}
+
+
+   
+

@@ -1,0 +1,11 @@
+---
+- name: Role for adding a host to DVS in vCenter
+  hosts: localhost
+
+  roles:
+    - {role: common, debug: on}
+    - {role: host_to_dvs, debug: on}
+
+
+   
+

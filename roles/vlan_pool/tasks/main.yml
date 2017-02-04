@@ -1,0 +1,17 @@
+---
+  - name: Create json files from template
+    template:
+      src: "./roles/{{role}}/templates/vlan_pool.j2"
+      dest: "./roles/{{role}}/files/vlan_pool_S{{ item }}.json"
+    with_items: "{{ STUDENTS }}"
+   
+  - name: Post json files to APIC
+    aci_rest:
+      host: "{{ APIC }}"
+      username: "{{ USERNAME }}"
+      password: "{{ PASSWORD }}"
+      uri: "/api/node/mo/uni/infra/vlanns-[S{{ item }}_Training_Pool]-dynamic.json"
+      config_file: "./roles/{{role}}/files/vlan_pool_S{{ item }}.json"
+      action: "post"
+      protocol: https
+    with_items: "{{ STUDENTS }}"
