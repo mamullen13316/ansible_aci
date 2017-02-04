@@ -13,6 +13,7 @@ add_host_to_dvs.yml - Adds a host to the DVS created by ACI in vCenter
 change_vm_portgroup.yml - Changes the vNIC on virtual machines to use the port group that was pushed by ACI
 
 Requirements:
+
 1. install Cobra SDK:  http://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/api/python/install/b_Install_Cisco_APIC_Python_SDK_Standalone.html
 
 2. clone git repository.  https://github.com/jedelman8/aci-ansible
